@@ -1,0 +1,2 @@
+check external iCal at booking time
+contract tests for iCal adapter
