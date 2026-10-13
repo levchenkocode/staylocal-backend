@@ -1,0 +1,14 @@
+name: Gate 1
+on:
+  pull_request:
+  push:
+    branches: [main, 'release/**']
+jobs:
+  lint-and-unit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Lint
+        run: grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+$' VERSION
+      - name: Unit tests
+        run: for f in *.txt; do test -s "$f"; done
